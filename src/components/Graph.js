@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Bar, Line,  } from 'react-chartjs-2'
+import { Bar, Line } from 'react-chartjs-2'
 import '../styles/graph.css'
 const Graph = () => {
     const [labels, setLabels] = useState(["1","2","3","4","5","6","7"])
@@ -10,6 +10,7 @@ const Graph = () => {
             <h2>Daily statistics</h2>
             <div className="graphs">
                 <div className="bar-container">
+                    <h3 className="title-chart">Daily average tweets</h3>
                     <Bar 
                     data={{
                         labels: labels,
@@ -19,8 +20,8 @@ const Graph = () => {
                             backgroundColor: '#F2C94C'
                         }]
                     }}
-                    height={250}
-                    width={375}
+                    height={100}
+                    width={200}
                     options={{
                         scales: {
                             xdescribe: {
@@ -40,10 +41,13 @@ const Graph = () => {
                     
                     />
                 </div>
+                <div className="border"></div>
                 <div className="line-container">
+                    <h3 className="title-chart">Daily total tweets</h3>
+                    <div className="line">
                     <Line 
-                        width={375}
-                        height={250}
+                        width={200}
+                        height={100}
                         data={{
                             labels: labels,
                             datasets: [{
@@ -71,6 +75,8 @@ const Graph = () => {
                         }}
                     />
                 </div>
+                </div>
+                
             </div>            
         </div>
     )
